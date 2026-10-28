@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>HVPE CLOTHING</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css">
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <header id="hdr"><nav class="navbar">
+  <a href="#" class="nav-logo" data-cat="all"><img id="logoImg" alt="HVPE" onerror="this.replaceWith('HVPE')"></a>
+  <ul class="nav-menu">
+    <button id="menu-close-button" class="fas fa-times" aria-label="Close"></button>
+    <li><a href="#" class="nav-link" data-cat="new" data-i18n="newin">New in</a></li>
+    <li><a href="#" class="nav-link" data-cat="men" data-i18n="men">Men</a></li>
+    <li><a href="#" class="nav-link" data-cat="women" data-i18n="women">Women</a></li>
+    <li><a href="#" class="nav-link" data-cat="sale" data-i18n="sales">Sales</a></li>
+    <li class="m-only"><a href="#" class="nav-link lgn" data-act="login" data-i18n="login">Login</a></li>
+    <li class="m-only"><a href="#" class="nav-link" data-act="find" data-i18n="findus">Find us</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#" data-act="login" class="lgn" data-i18n="login">Login</a>
+    <a href="#" data-act="find" data-i18n="findus">Find us</a>
+    <button data-act="wish" class="bag" aria-label="Wishlist"><i class="fa-regular fa-heart"></i><sup id="cnt"></sup></button>
+    <button id="menu-open-button" class="fas fa-bars" aria-label="Menu"></button>
+  </div>
+ </nav></header>
+
+ <main>
+  <section class="hero-section">
+    <!-- hero picture: set in images.js -->
+    <div class="hero-details"><p data-i18n="hero">New Essential Tees</p><a href="#" data-cat="new" data-i18n="learn">Learn more</a></div>
+  </section>
+
+  <section id="shop" class="shop">
+    <div class="tabs">
+      <button data-cat="all" data-i18n="all">All</button><button data-cat="men" data-i18n="men">Men</button>
+      <button data-cat="women" data-i18n="women">Women</button><button data-cat="new" data-i18n="newin">New in</button>
+      <button data-cat="sale" data-i18n="sales">Sales</button>
+      <button class="ftoggle" id="ftoggle"><i class="fa-solid fa-sliders"></i> <span data-i18n="filters">Filters</span></button>
+    </div>
+    <div class="fbar" id="fbar">
+      <label><span data-i18n="sort">Sort</span><select id="fSort"><option value="" data-i18n="sortDef">Featured</option><option value="low" data-i18n="sortLow">Price: low to high</option><option value="high" data-i18n="sortHigh">Price: high to low</option></select></label>
+      <label><span data-i18n="size">Size</span><select id="fSize"></select></label>
+      <label><span data-i18n="colour">Colour</span><select id="fColor"></select></label>
+      <label><span><span data-i18n="maxPrice">Max price</span>: <b id="fMaxLbl"></b></span><input type="range" id="fMax" min="500" max="2900" step="100" value="2900"></label>
+      <button id="fReset" data-i18n="reset">Reset</button>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p class="none" id="none" data-i18n="none" hidden>No items match your filters.</p>
+  </section>
+ </main>
+
+ <footer>
+  <!-- 5 items in one row: Get help | Account | icons | About | Contact us. The gaps between them are all equal. -->
+  <div class="foot">
+    <div><h4 data-i18n="getHelp">Get help</h4>
+      <a href="#" data-info="delivery" data-i18n="deliveryI">Delivery</a>
+      <a href="#" data-info="returns" data-i18n="returnsI">Returns</a>
+      <a href="#" data-info="size" data-i18n="sizeG">Size guide</a></div>
+    <div><h4 data-i18n="account">Account</h4>
+      <a href="#" data-act="login" class="lgn" data-i18n="login">Login</a>
+      <a href="#" data-act="signup" data-i18n="createAcc">Create account</a>
+      <a href="#" data-act="wish" data-i18n="wishlist">Wishlist</a></div>
+    <div class="socials">
+      <a id="sIg" href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a id="sTk" href="#" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+    <div><h4 data-i18n="about">About</h4>
+      <a href="#" data-info="about" data-i18n="aboutUs">About us</a>
+      <a href="#" data-act="find" data-i18n="findus">Find us</a></div>
+    <div><h4 data-i18n="contactUs">Contact us</h4>
+      <a id="fMail" href="#"></a><a id="fTel" href="#"></a>
+      <button data-act="region" class="region"><i class="fa-solid fa-globe"></i> <u id="regLbl"></u></button></div>
+  </div>
+  <p class="copy">© 2026 HVPE. <span data-i18n="rights">All rights reserved.</span></p>
+ </footer>
+
+ <!-- Location & language -->
+ <dialog id="dLoc"><form method="dialog" id="fLoc" class="pad">
+  <h2 data-i18n="locT">Select your location</h2>
+  <label class="fl"><span data-i18n="location">Location</span><select id="selLoc"></select></label>
+  <label class="fl"><span data-i18n="language">Language</span><select id="selLang"><option value="en">English</option><option value="fr">Français</option></select></label>
+  <button class="outline" data-i18n="continue">Continue</button>
+  <label class="chk"><input type="checkbox" id="rem" checked> <span data-i18n="remember">Remember selection</span></label>
+ </form></dialog>
+
+ <!-- Product -->
+ <dialog id="dProd" class="wide"><button class="x" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button><div id="prodBody" class="prod"></div></dialog>
+
+ <!-- Wishlist drawer -->
+ <dialog id="dWish" class="drawer">
+  <div class="dh"><h2 data-i18n="wishlist">Wishlist</h2><button data-close class="plain"><i class="fa-solid fa-xmark"></i> <span data-i18n="close">Close</span></button></div>
+  <div id="wishBody" class="dbody"></div>
+ </dialog>
+
+ <!-- Login -->
+ <dialog id="dLogin"><form id="fLogin" class="pad"><button type="button" class="x" data-close><i class="fa-solid fa-xmark"></i></button>
+  <h2 id="loginT"></h2>
+  <input name="name" id="lName" data-ph="name" placeholder="Name" hidden>
+  <input name="email" type="email" required data-ph="email" placeholder="Email address">
+  <input name="pass" type="password" required minlength="4" data-ph="password" placeholder="Password">
+  <button class="solid" id="loginBtn"></button>
+  <a href="#" id="swapLogin" class="small"></a>
+ </form></dialog>
+
+ <!-- Find us -->
+ <dialog id="dFind" class="wide"><div class="pad"><button class="x" data-close><i class="fa-solid fa-xmark"></i></button>
+  <h2 data-i18n="findus">Find us</h2><div id="findBody" class="stores"></div></div></dialog>
+
+ <!-- Info pages -->
+ <dialog id="dInfo"><div class="pad"><button class="x" data-close><i class="fa-solid fa-xmark"></i></button><h2 id="infoT"></h2><div id="infoB"></div></div></dialog>
+
+ <div id="toast" role="status"></div>
+ <script src="products.js"></script>
+ <script src="images.js"></script>
+ <script src="script.js"></script>
+</body>
+</html>
